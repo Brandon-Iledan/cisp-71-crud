@@ -615,7 +615,7 @@ class FilterWindow(tk.Toplevel):
                 self.filterStatus = 'executed'
                 self.parent.FilterWindowHandler(self.filterStatus)
         except DatabaseError:
-            showerror(title='Error', message='There was a problem adding the record: ' + str(result) + '.')
+            showerror(title='Error', message='There was a problem filtering the database: ' + str(result) + '.')
     
     # Method called by main app window to update the status bar
     def GetQueryIndicator(self):
@@ -753,7 +753,7 @@ class InspectRecordWindow(tk.Toplevel):
                 except DatabaseError:
                     showerror(title='Error', message='There was a problem modifying the record: ' + str(result) + '.', parent=self)
             else:
-                showerror(title='Record missing', message='The inspected record no longer exists. Close the record inspector to refresh the vehicle list.', parent='self')
+                showerror(title='Record missing', message='The inspected record no longer exists. Close the record inspector and clear any filters.', parent='self')
 
     def DeleteRecord(self):
         answer = askyesno(title='Delete record?', message='Are you sure you want to delete the selected records? You cannot undo this action.', icon=WARNING)
